@@ -1,0 +1,247 @@
+.customerDetails label {
+  width: 12rem;
+  font-size: 0.9rem;
+}
+
+.customerDetails input, .customerDetails select, .customerDetails textarea {
+  border: 1px solid #ebedf2;
+  color: #575962;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.customerDetails input:focus, .customerDetails select:focus, .customerDetails textarea:focus {
+  outline: 1px solid #0047ba;
+}
+
+.customerDetails textarea {
+  resize: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.customerDetails form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.customerDetails form .col .row, .customerDetails form .col2 .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.customerDetails form .col .row label, .customerDetails form .col2 .row label {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+
+.customerDetails form .col .row input, .customerDetails form .col .row .input, .customerDetails form .col .row select, .customerDetails form .col .row textarea, .customerDetails form .col2 .row input, .customerDetails form .col2 .row .input, .customerDetails form .col2 .row select, .customerDetails form .col2 .row textarea {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.customerDetails form .col .details, .customerDetails form .col2 .details {
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 2px 0px #a6a6a6;
+          box-shadow: 0px 0px 2px 0px #a6a6a6;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.customerDetails form .col .details .top, .customerDetails form .col2 .details .top {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.customerDetails form .col .details .top h2, .customerDetails form .col2 .details .top h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #3f4047;
+}
+
+.customerDetails form .col .details .data, .customerDetails form .col2 .details .data {
+  color: #575962;
+  padding: 2.2rem;
+}
+
+.customerDetails form .col .details .data p, .customerDetails form .col2 .details .data p {
+  font-weight: 500;
+}
+
+.customerDetails form .col .details .data ul, .customerDetails form .col2 .details .data ul {
+  margin: 1rem 0;
+  margin-left: 3rem;
+  color: #575962;
+}
+
+.customerDetails form .col .details .data ul li, .customerDetails form .col2 .details .data ul li {
+  font-size: 0.9rem;
+}
+
+.customerDetails form .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 2rem;
+}
+
+.customerDetails form .col label span {
+  color: #f4516c;
+}
+
+.customerDetails form .col .input {
+  font-size: 0.7rem;
+  margin-top: -1.5rem;
+}
+
+.customerDetails form .col .pickup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  margin-top: -1rem;
+}
+
+.customerDetails form .col .pickup button {
+  padding: 0.5rem 2rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #0047ba;
+}
+
+.customerDetails form .colwithbutton {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+
+.customerDetails form .colwithbutton .col2 .services {
+  padding: 2rem;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.customerDetails form .colwithbutton .col2 .services .cod {
+  background-color: #133BA0;
+  width: 4rem;
+  color: white;
+  font-size: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 999px;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+.customerDetails form .colwithbutton .col2 .parcel {
+  padding: 2rem;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.customerDetails form .colwithbutton .col2 .parcel .collection {
+  margin-top: 1rem;
+}
+
+.customerDetails form .colwithbutton .col2 .parcel .collection .cash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.customerDetails form .colwithbutton .col2 .parcel .collection p {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  color: #f4516c;
+}
+
+.customerDetails form .colwithbutton .col2 .parcel .collection input {
+  margin-top: 1rem;
+}
+
+.customerDetails form .colwithbutton .rs {
+  padding: 2rem;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.customerDetails form .colwithbutton .rs .collection {
+  margin: 2rem 0;
+}
+
+.customerDetails form .colwithbutton .rs .collection .cash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.customerDetails form .colwithbutton .book {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #0047ba;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .customerDetails form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .customerDetails form .col {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .customerDetails form .col .row, .customerDetails form .col2 .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .customerDetails form .col .row label, .customerDetails form .col2 .row label {
+    margin-bottom: 0.5rem;
+  }
+}
+/*# sourceMappingURL=CreateShipment.module.css.map */

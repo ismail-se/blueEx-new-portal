@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "f9320168-7135-4158-a380-a701979466b7",
+		"name": "BLX XML API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Place order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "xml",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<BenefitDocument>\n\n  <AccessRequest>\n\n    <DocumentType>1</DocumentType>\n\n <Orderdetail>\n\n  <acno>KHI-00000</acno>\n  \n  <testbit>y</testbit>\n  \n  <userid>demo</userid>\n  \n  <password>demo123456</password>\n  \n  <cn_generate>y</cn_generate>\n  \n  <customer_name>Muhammad Talha</customer_name>\n  \n  <customer_email>symtalha@gmail.com</customer_email>\n  \n  <customer_contact>03142050348</customer_contact>\n  \n  <customer_address>Flat 115 Block A Laraib Garden, Gulshan e Iqbal Block 1 Karachi</customer_address>\n  \n  <customer_city>LHE</customer_city>\n  \n  <customer_country>PK</customer_country>\n  \n  <customer_comment>custmer comments</customer_comment>\n \n  <shipping_charges>150</shipping_charges>\n  \n  <payment_type>COD</payment_type>\n \n  <all_products>\n\n    <products_detail>\n\n      <product_code>312</product_code>\n          \n      <product_name>Polo Shirt</product_name>\n      \n      <product_price>900</product_price>\n      \n      <product_quantity>1</product_quantity>\n      \n      <product_variations>Black-Medium</product_variations>\n\n      <sku_code>490uk192</sku_code>\n\n    </products_detail>\n\n    <products_detail>\n\n      <product_code>320</product_code>\n      \n      <product_name>Sleveless Tshirt</product_name>\n      \n      <product_price>1200</product_price>\n      \n      <product_quantity>4</product_quantity>\n      \n      <product_variations>Red-Small</product_variations>\n\n      <sku_code>100uk192</sku_code>\n      \n    </products_detail>\n    \n  </all_products>\n\n  <shipper_origion_city>KHI</shipper_origion_city>\n\n  <total_order_amount>KHI</total_order_amount>\n\n  <order_refernce_code>10000019</order_refernce_code>\n\n  <total_order_weight>3</total_order_weight>\n\n </Orderdetail>\n\n  </AccessRequest>\n\n</BenefitDocument>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/xml/order/order_api.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"xml",
+						"order",
+						"order_api.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "xml",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<BenefitDocument>\n\n  <AccessRequest>\n\n    <DocumentType>20</DocumentType>\n\n <ShipmentDetail>\n\n  <cnNumber>5005840372</cnNumber>\n\n </ShipmentDetail>\n\n  </AccessRequest>\n\n</BenefitDocument>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/xml/tariff/serverxml.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"xml",
+						"tariff",
+						"serverxml.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tariff",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "xml",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n\n<BenefitDocument>\n\n  <AccessRequest>\n\n    <DocumentType>5</DocumentType>\n\n <ShipmentDetail>\n\n  <ServiceCode>BG</ServiceCode>\n\n  <OriginCity>KHI</OriginCity>\n\n  <DestinationCountry>PK</DestinationCountry>\n\n  <DestinationCity>LHE</DestinationCity>\n\n  <Weight>1.5</Weight>\n\n  <CBCAmount>5000</CBCAmount>\n\n  <ParcelType>P</ParcelType>\n\n </ShipmentDetail>\n\n  </AccessRequest>\n\n</BenefitDocument>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/xml/tariff/serverxml.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"xml",
+						"tariff",
+						"serverxml.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cities API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "xml",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n\n                <BenefitDocument> \n\n                <AccessRequest> \n\n                <DocumentType>1</DocumentType> \n\n                <Customerinfo> \n\n                <account_number>KHI-00000</account_number> \n\n                <country_code>US</country_code> \n\n                </Customerinfo> \n\n                </AccessRequest> \n\n                </BenefitDocument>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/extensions/cities/citylist.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"extensions",
+						"cities",
+						"citylist.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tracking API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "xml",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<BenefitDocument>\n\n  <AccessRequest>\n\n    <DocumentType>6</DocumentType>\n\n <ShipmentDetail>\n\n  <cnNumber>5005840372</cnNumber>\n\n </ShipmentDetail>\n\n  </AccessRequest>\n\n</BenefitDocument>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/xml/tracking/serverxml.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"xml",
+						"tracking",
+						"serverxml.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "xml",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<BenefitDocument>\n\n<AccessRequest>\n\n    <DocumentType>1</DocumentType>\n\n<Orderdetail>\n\n    <acno>KHI-00000</acno>\n\n    <userid>demo</userid>\n\n    <password>demo123456</password>\n\n    <Orders>\n        <codes>\n            <OrderReferenceCode>226</OrderReferenceCode>\n        </codes>\n    </Orders>\n\n</Orderdetail>\n\n</AccessRequest>\n\n</BenefitDocument>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/xml/status/serverxml.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"xml",
+						"status",
+						"serverxml.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

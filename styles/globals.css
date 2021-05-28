@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #ececec;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 8px;
+  background-color: #0047ba;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+  height: 8px;
+  background-color: #00aeef;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  height: 8px;
+  background-color: #0047ba;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal:hover {
+  height: 8px;
+  background-color: #00aeef;
+}
+::-moz-vertical-scrollbar {
+  width: 8px;
+  height: 15px;
+}
+::-moz-vertical-scrollbar-track-piece {
+  background-color: #ccc;
+}
+::-moz-vertical-scrollbar-thumb:vertical {
+  height: 8px;
+  background-color: #951f0b;
+}
+::-moz-vertical-scrollbar-thumb:horizontal {
+  height: 8px;
+  background-color: #951f0b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.loginInput {
+  @apply bg-[#f7f6f9] text-[#91899f] px-[1.5rem] py-[1rem] focus:outline-none rounded-full w-[20rem] md:w-[22rem] pr-[2.3rem];
+}
+
+.roundedBtn {
+  @apply bg-[#0047ba] hover:bg-[#133ba0] text-white px-[1.5rem] py-[1rem] w-[10rem] font-semibold rounded-full mt-5 self-center focus:outline-none;
+}
+
+.blueNavBtn {
+  @apply bg-[#0047ba] hover:bg-[#133ba0] text-white px-[1.5rem] py-[1rem] w-full rounded-full flex items-center;
+}
+
+.dateBtn {
+  @apply bg-[#0047ba] focus:outline-none text-white rounded-full flex items-center justify-center p-1;
+}
+
+.a {
+  @apply text-[#0047ba] hover:text-[#007bff];
+}
+.heading {
+  font-family: "Roboto", sans-serif;
+  @apply text-[#3f4047] font-semibold text-2xl;
+}
+
+.h2 {
+  @apply font-medium text-[1.25rem] leading-tight mb-0;
+}
+
+.h3 {
+  @apply font-medium text-[1.1rem] leading-tight mb-0;
+}
+
+.p {
+  @apply mb-[1rem];
+}
+
+.btnGroup {
+  @apply gap-3 flex flex-col sm:flex-row;
+}
+
+.btn {
+  @apply text-white bg-[#c4c5d6] rounded-sm text-sm hover:text-white focus:ring-transparent focus:ring-0;
+}
+.btnBlue {
+  @apply text-white bg-[#0047ba] rounded-sm text-sm hover:text-white focus:ring-transparent focus:ring-0 py-[0.5rem] px-[0.8rem] hover:bg-[#133ba0];
+}
+
+.btnBlueBg {
+  @apply text-white bg-[#0047ba] rounded-sm text-sm hover:text-white focus:ring-transparent focus:ring-0 p-[1rem];
+}
+
+.bell {
+  animation: rotate 1s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.data {
+  color: #575962;
+  padding: 2.2rem;
+  font-size: 0.9rem;
+}
+
+.data h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.data ol {
+  list-style: lower-alpha;
+  padding-left: 2rem;
+}
+.data ol > li {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.data a {
+  color: #0047ba;
+}
+.data a:hover {
+  color: #007bff;
+}
+.data ul {
+  margin: 1rem 0;
+  margin-left: 3rem;
+  color: #575962;
+}
+.data ul li {
+  font-size: 0.9rem;
+}
+
+/* Charts */
+
+.recharts-pie-sector text {
+  font-size: 0.7rem;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 0.7rem;
+}
+
+.recharts-legend-item {
+  display: none !important;
+}
+
+/* Date Range Picker */
+
+@media (max-width: 960px) {
+  .rdrDateRangePickerWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .rdrDefinedRangesWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 730px) {
+  .rdrMonths {
+    flex-direction: column;
+  }
+}
+
+.row {
+  @apply flex items-center flex-col sm:flex-row w-full p-4 pl-8;
+}
+.label {
+  @apply text-sm sm:w-[12rem] w-full;
+}
+.shipmentInput {
+  @apply rounded-sm border-[1px] focus:outline-none  text-sm flex-1 p-2 w-full;
+}
+.trackInput {
+  @apply rounded-sm border-[1px] focus:outline-none  text-sm flex-1 p-4 w-full;
+}
+.validate {
+  @apply border-red-600 focus:border-red-600;
+}
+.nonValid {
+  @apply border-gray-300 focus:border-blue-500;
+}
+
+.csvButton {
+  @apply py-[0.35rem] px-[1.25rem] text-sm leading-6 rounded-sm border bg-white transition-all duration-200 hover:bg-[#ebedf2] focus:outline-none;
+}
+
+.bookingBtn {
+  @apply bg-[#0047ba] w-full text-white p-2 rounded-sm flex justify-center items-center;
+}
+
+.bookingSpan {
+  @apply text-[#0047ba] bg-white rounded-full font-semibold flex justify-center items-center w-[1.5rem] h-[1.5rem] ml-2;
+}
+
+.Mui-expanded {
+  color: #0047ba !important;
+}
+.MuiAccordionSummary-content .MuiTypography-body1 {
+  font-size: 1rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+code,
+pre {
+  color: #476cc7e0;
+  text-shadow: 0 1px rgb(192 192 192 / 91%);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 0;
+  -o-tab-size: 0;
+  tab-size: 0;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  font-size: 0.8rem;
+}
+pre {
+  background: #f2f2f2 !important;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+  color: #3f3f3f;
+}
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: #f92672;
+}
+.token.punctuation {
+  color: #476cc7e0;
+}

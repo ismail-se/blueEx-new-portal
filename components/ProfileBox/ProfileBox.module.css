@@ -1,0 +1,86 @@
+.profileBox {
+  position: absolute;
+  top: 4.1rem;
+  right: 2rem;
+  width: 325px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 18px -3px #a6a6a6;
+          box-shadow: 0px 1px 18px -3px #a6a6a6;
+  -webkit-animation: up 0.5s ease;
+          animation: up 0.5s ease;
+}
+
+.profileBox .notch {
+  position: absolute;
+  width: 2rem;
+  height: 1rem;
+  background-color: white;
+  top: -0.6rem;
+  right: 5rem;
+  -webkit-clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+          clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+}
+
+.profileBox .box .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.5rem;
+}
+
+.profileBox .box .top img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding-right: 1rem;
+}
+
+.profileBox .box .top .text {
+  color: black;
+}
+
+.profileBox .box .top .text a {
+  color: #aeafc2;
+}
+
+.profileBox .box .button {
+  padding: 1rem 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #aeafc2;
+}
+
+.profileBox .box .button span {
+  margin-left: 1rem;
+}
+
+.profileBox .box .button:hover {
+  color: #0047ba;
+}
+
+@-webkit-keyframes up {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 4.1rem;
+    opacity: 1;
+  }
+}
+
+@keyframes up {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 4.1rem;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=ProfileBox.module.css.map */

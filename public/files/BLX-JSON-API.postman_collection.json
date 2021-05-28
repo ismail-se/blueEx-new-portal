@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "2f761496-4a4c-4eeb-a581-70a279f3d801",
+		"name": "BLX JSON API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Place order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{\n\t\"acno\": \"KHI-00000\",\n  \t\"testbit\": \"y\",\n  \t\"userid\": \"demo\",\n  \t\"password\": \"demo123456\",\n  \t\"cn_generate\": \"y\",\n  \t\"customer_name\": \"Muhammad Talha\",\n  \t\"customer_email\": \"symtalha@gmail.com\",\n  \t\"customer_contact\": \"03142050348\",\n  \t\"customer_address\": \"Flat #115 Block A Laraib Garden, Gulshan e Iqbal Block 1 Karachi\",\n  \t\"customer_city\": \"LHE\",\n  \t\"customer_country\": \"PK\",\n  \t\"customer_comment\": \"custmer comments\",\n  \t\"shipping_charges\": \"150\",\n  \t\"payment_type\": \"COD\",\n  \t\"shipper_origion_city\": \"KHI\",\n  \t\"total_order_amount\": \"2050\",\n  \t\"order_refernce_code\": \"10005647\",\n     \"products_detail\": [\n\t    {\n\t      \"product_code\": \"1005\",\n\t      \"product_name\": \"Polo T shirt\",\n\t      \"product_price\": \"1000\",\n\t      \"product_weight\": \"0.5\",\n\t      \"product_quantity\": \"2\",\n\t      \"product_variations\": \"small-black\",\n\t      \"sku_code\": \"12assk11aa\"\n\t    }\n\t]\n}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/json/serverjson.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"json",
+						"serverjson.php"
+					]
+				},
+				"description": "order placement"
+			},
+			"response": []
+		},
+		{
+			"name": "Status Api",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{\t\t\t\t\t\t\t\t\t\t\t\t\t  \"acno\": \"KHI-00000\",\t\t\t\t\t\t\t\t\t\t\t\t  \"userid\": \"demo\",\t\t\t\t\t\t\t\t\t\t\t\t  \"password\": \"demo123456\",\t\t\t\t\t\t\t\t\t\t\t\t  \"order_refernce_code\": \"10005647\"\t\t\t\t\t\t\t\t\t\t\t\t\t}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/json/status/serverjson.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"json",
+						"status",
+						"serverjson.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tracking API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{\t\t\t\t\t\t\t\t\t\t\t\t  \"acno\": \"KHI-00000\",\t\t\t\t\t\t\t\t\t\t\t  \"userid\": \"demo\",\t\t\t\t\t\t\t\t\t\t\t\t  \"password\": \"demo123456\",\t\t\t\t\t\t\t\t\t\t\t\t  \"order_refernce_code\": \"10005647\"\t\t\t\t\t\t\t\t\t\t\t\t}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/json/tracking/serverjson.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"json",
+						"tracking",
+						"serverjson.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tariff API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{\t\t\t\t\t\t\t\t\t\t\t\t\t\"acno\": \"KHI-00000\",\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"origin\": \"KHI\",\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"destination\": \"ISB\",\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"service\": \"BE\",\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"wgt\": \"1\"\t\t\t\t\t\t\t\t\t\t\t\t}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://113.203.238.11/customerportal/calculatetarrif.py",
+					"protocol": "http",
+					"host": [
+						"113",
+						"203",
+						"238",
+						"11"
+					],
+					"path": [
+						"customerportal",
+						"calculatetarrif.py"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "City List API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{ \"acno\": \"KHI-00000\" }",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/json/cities/serverjson.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"json",
+						"cities",
+						"serverjson.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "International City List API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{\t\t\t\t\t\t\t\t\t  \"acno\": \"KHI-00000\",\t\t\t\t\t\t\t\t\t\t\t  \"country_code\"=> \"US\"\t\t\t\t\t\t\t\t}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/demo/json/international_cities/serverjson.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"demo",
+						"json",
+						"international_cities",
+						"serverjson.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Shipment API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "request",
+							"value": "{\t\t\t\t\t\t\t\t\t\t\t\t\"acno\": \"KHI-00000\",\t\t\t\t\t\t\t\t\t\t\t\t\t\"userid\": \"demo\",\t\t\t\t\t\t\t\t\t\t\t\t\"password\": \"demo123456\",\t\t\t\t\t\t\t\t\t\t\t\t\"consignee_number\": \"5007338130\"\t\t\t\t\t\t\t\t\t\t\t}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://bigazure.com/api/live/json/cancel/serverjson.php",
+					"protocol": "http",
+					"host": [
+						"bigazure",
+						"com"
+					],
+					"path": [
+						"api",
+						"live",
+						"json",
+						"cancel",
+						"serverjson.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

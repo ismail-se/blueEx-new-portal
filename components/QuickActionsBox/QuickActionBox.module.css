@@ -1,0 +1,140 @@
+.quickAction {
+  position: absolute;
+  top: 4.1rem;
+  right: 14rem;
+  width: 360px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 18px -3px #a6a6a6;
+          box-shadow: 0px 1px 18px -3px #a6a6a6;
+  -webkit-animation: up 0.5s ease;
+          animation: up 0.5s ease;
+}
+
+.quickAction .notch {
+  position: absolute;
+  width: 2rem;
+  height: 1rem;
+  background-color: white;
+  top: -0.6rem;
+  right: 1rem;
+  -webkit-clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+          clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+}
+
+.quickAction .box {
+  position: relative;
+  z-index: 1000;
+}
+
+.quickAction .box .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.5rem;
+  background-image: url("/images/notification_bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.quickAction .box .top .text {
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+}
+
+.quickAction .box .top .text .small {
+  font-size: 1rem;
+}
+
+.quickAction .box .bottom .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.quickAction .box .bottom .row .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem 1.5rem;
+  width: 12rem;
+  height: 10rem;
+  border: 1px solid #fafafa;
+  cursor: pointer;
+}
+
+.quickAction .box .bottom .row .col img {
+  width: 3rem;
+}
+
+.quickAction .box .bottom .row .col .title {
+  font-size: 0.9rem;
+  color: #0047ba;
+  margin-top: 1rem;
+}
+
+@-webkit-keyframes up {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 4.1rem;
+    opacity: 1;
+  }
+}
+
+@keyframes up {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 4.1rem;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .quickAction {
+    right: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .quickAction {
+    right: 0;
+    width: 100%;
+    margin: 0 1rem;
+  }
+  .quickAction .notch {
+    right: 3rem;
+  }
+}
+/*# sourceMappingURL=QuickActionBox.module.css.map */

@@ -1,0 +1,38 @@
+.pieBar {
+  width: 100%;
+  padding: 2rem;
+}
+
+.pie {
+  height: 20rem;
+  width: 100%;
+}
+
+.bars {
+  padding: 1rem;
+  width: 100%;
+  .bar {
+    width: 100%;
+    padding: 1.1rem 0;
+    .val {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #6f727d;
+    }
+    .line {
+      width: 100%;
+      height: 0.7rem;
+      border-radius: 999px;
+      background-color: #e9ecef;
+
+      .linefill {
+        background-color: #b9d3b6;
+        height: 100%;
+        border-radius: 999px;
+      }
+    }
+    .name {
+      font-size: 13px;
+    }
+  }
+}

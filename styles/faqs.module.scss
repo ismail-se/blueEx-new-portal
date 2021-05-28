@@ -1,0 +1,45 @@
+.menu {
+  margin-right: 5rem;
+  min-width: 14rem;
+  max-width: 16rem;
+  ul {
+    list-style: none;
+    text-transform: uppercase;
+
+    li {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.1rem;
+    }
+    .active {
+      color: #0047ba;
+      background-color: #ebedf2;
+      border-radius: 999px;
+    }
+  }
+}
+.accordion {
+  flex: 1;
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  a {
+    color: #0047ba;
+    font-weight: 800px;
+  }
+  ul {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .menu {
+    max-width: 100% !important;
+    width: 100%;
+  }
+  .accordion {
+    margin-top: 2rem;
+  }
+}

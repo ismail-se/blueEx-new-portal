@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    border: none;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    background-color: #0047ba;
+  }
+  button:focus {
+    outline: none;
+  }
+}
+
+.popheading,
+.title {
+  font-size: 20px;
+  line-height: 22px;
+  color: #727272;
+  font-weight: 500;
+  padding: 0.5rem;
+}

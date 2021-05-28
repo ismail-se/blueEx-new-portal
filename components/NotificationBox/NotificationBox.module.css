@@ -1,0 +1,169 @@
+.notificationBox {
+  position: absolute;
+  top: 4.1rem;
+  right: 14rem;
+  width: 360px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 18px -3px #a6a6a6;
+          box-shadow: 0px 1px 18px -3px #a6a6a6;
+  -webkit-animation: up 0.5s ease;
+          animation: up 0.5s ease;
+}
+
+.notificationBox .notch {
+  position: absolute;
+  width: 2rem;
+  height: 1rem;
+  background-color: white;
+  top: -0.6rem;
+  right: 3.5rem;
+  -webkit-clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+          clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+}
+
+.notificationBox .box {
+  position: relative;
+  z-index: 1000;
+}
+
+.notificationBox .box .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.5rem;
+  background-image: url("/images/notification_bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.notificationBox .box .top .text {
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+}
+
+.notificationBox .box .top .text .small {
+  font-size: 1rem;
+}
+
+.notificationBox .box .bottom .newsRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #ebedf2;
+}
+
+.notificationBox .box .bottom .newsRow div {
+  padding: 2rem 1rem 1rem 1rem;
+  cursor: pointer;
+}
+
+.notificationBox .box .bottom .newsRow div:hover {
+  color: #0047ba;
+  border-bottom: 1px solid #0047ba;
+}
+
+.notificationBox .box .bottom .alert {
+  margin: 2rem;
+}
+
+.notificationBox .box .bottom .alert ul {
+  list-style: none;
+  /* Remove default bullets */
+}
+
+.notificationBox .box .bottom .alert ul li::before {
+  content: "\2022";
+  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #d8d8d8;
+  /* Change the color */
+  font-weight: bold;
+  /* If you want it to be bold */
+  display: inline-block;
+  /* Needed to add space between the bullet and the text */
+  width: 1em;
+  /* Also needed for space (tweak if needed) */
+  margin-left: -1em;
+  /* Also needed for space (tweak if needed) */
+}
+
+.notificationBox .box .bottom .alert h2 {
+  margin: 0 0 18px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.notificationBox .box .bottom .alert .row {
+  font-size: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #575962;
+}
+
+.notificationBox .box .bottom .alert .row li {
+  width: 12rem;
+}
+
+@-webkit-keyframes up {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 4.1rem;
+    opacity: 1;
+  }
+}
+
+@keyframes up {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 4.1rem;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .notificationBox {
+    right: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .notificationBox {
+    right: 0;
+    width: 100%;
+    margin: 0 1rem;
+  }
+  .notificationBox .notch {
+    right: 5.7rem;
+  }
+}
+/*# sourceMappingURL=NotificationBox.module.css.map */

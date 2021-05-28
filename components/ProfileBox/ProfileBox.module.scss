@@ -1,0 +1,64 @@
+.profileBox{
+    position: absolute;
+    top: 4.1rem;
+    right: 2rem;
+    width: 325px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 18px -3px rgba(166,166,166,1);
+    animation: up 0.5s ease ;
+
+    .notch {
+        position: absolute;
+        width: 2rem;
+        height: 1rem;
+        background-color: white;
+        top: -0.6rem;
+        right: 5rem;
+        clip-path: polygon(50% 0%, 0 68%, 100% 68%);
+    }
+
+    .box {
+        .top {
+            display: flex;
+            padding: 1.5rem;
+
+            img {
+                object-fit: contain;
+                padding-right: 1rem;
+            }
+
+            .text {
+                color: black;
+                a {
+                    color: #aeafc2;
+                }
+            }    
+        }
+
+        .button {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            color: #aeafc2;
+
+            span {
+                margin-left: 1rem;
+            }
+        }
+        .button:hover {
+            color: #0047ba; 
+        }
+    }
+}
+
+@keyframes up {
+    from {
+        top: 5rem;
+        opacity: 0;
+    }
+    to {
+        top: 4.1rem;
+        opacity: 1;
+    }
+}

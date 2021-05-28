@@ -1,0 +1,17 @@
+.accordianCard {
+  margin-bottom: 2rem;
+}
+
+.accordian {
+  background-color: #f7f8fa !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  font-size: 1.5rem !important;
+  padding: 8px 10px;
+  color: #6f727d !important;
+}
+
+.accordian .type {
+  font-size: 0.9rem;
+}
+/*# sourceMappingURL=AccordianCard.module.css.map */

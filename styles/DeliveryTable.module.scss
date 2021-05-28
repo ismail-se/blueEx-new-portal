@@ -1,0 +1,93 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .searchBar {
+    display: flex;
+    align-items: center;
+  }
+
+  .right {
+    button {
+      padding: 0.35rem 1.25rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      border-radius: 0.2rem;
+      border: 1px solid #dedfe4;
+      background-color: white;
+      margin: 0.2rem;
+      transition: all 0.25s ease;
+    }
+    button:hover {
+      background-color: #ebedf2;
+    }
+    button:focus {
+      outline: none;
+    }
+  }
+}
+
+.cellIcon {
+  margin: 0 0.5rem;
+  color: #898b96;
+}
+.cellIcon:hover {
+  background-color: #0047ba;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.pickupBox {
+  background-color: white;
+  position: absolute;
+  width: 10rem;
+  text-align: left;
+  top: 3rem;
+  right: 3rem;
+  z-index: 2;
+  box-shadow: 0 0 15px 1px rgba(69, 65, 78, 0.2);
+  display: none;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      padding: 0.8rem;
+    }
+    li:hover {
+      background-color: #ebedf2;
+    }
+  }
+}
+
+.buttonList {
+  display: flex;
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #0047ba;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+  button:hover {
+    background-color: #133ba0;
+  }
+  button:focus {
+    outline: none;
+  }
+}
+
+.skeleton {
+  width: 100%;
+}

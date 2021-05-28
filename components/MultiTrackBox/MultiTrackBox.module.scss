@@ -1,0 +1,142 @@
+.multiTrackBox {
+  margin: 2rem;
+  background-color: #fcfaf5;
+  padding: 2rem;
+  .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    ul {
+      list-style: none;
+      display: flex;
+      width: 100%;
+      li {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        //   justify-content: center;
+        align-items: center;
+        .circle {
+          background-color: #cfcfcf;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-bottom: 0.8rem;
+          position: relative;
+          z-index: 4;
+
+          img {
+            padding: 12px;
+            max-width: 100%;
+          }
+        }
+        .blue {
+          background-color: #00aeef;
+        }
+
+        p {
+          font-size: 0.85rem;
+          width: 5rem;
+          text-align: center;
+        }
+      }
+      .line {
+        position: relative;
+      }
+      .line::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background: #cfcfcf;
+        top: 2rem;
+        left: -50%;
+      }
+
+      .blueLine::before {
+        background-color: #00aeef;
+      }
+    }
+  }
+  .text {
+    margin: 0 2rem;
+    .top {
+      margin-bottom: 30px;
+      h4 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #575962;
+      }
+    }
+    .body {
+      p {
+        margin-bottom: 1rem;
+        color: #575962;
+        font-size: 0.85;
+      }
+      .blue {
+        color: #00aeef;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .multiTrackBox {
+    margin: 1rem;
+    padding: 1rem;
+
+    .images {
+      ul {
+        li {
+          .circle {
+            width: 40px;
+            height: 40px;
+            img {
+              padding: 6px;
+            }
+          }
+          p {
+            font-size: 0.6rem;
+          }
+        }
+        .line::before {
+          top: 1rem;
+        }
+      }
+    }
+    .text {
+      .body {
+        p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 560px) {
+  .multiTrackBox {
+    .images {
+      padding: 0;
+      ul {
+        li {
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+    .text {
+      margin: 1rem 0 0 0;
+    }
+  }
+}
