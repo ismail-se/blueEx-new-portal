@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "export": "next build && next export"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -53,5 +52,8 @@
     "babel-loader": "^8.2.2",
     "postcss": "^8.2.10",
     "tailwindcss": "^2.1.1"
-  }
+  },
+  "cacheDirectories": [
+    ".next/cache"
+  ]
 }
