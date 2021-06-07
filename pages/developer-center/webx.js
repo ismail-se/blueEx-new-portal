@@ -57,26 +57,44 @@ const Webx = ({ data }) => {
               <ul className="">
                 <li
                   id="introduction"
+                  className="cursor-pointer"
                   onClick={() => setFaqComp("introduction")}
                 >
                   INTRODUCTION
                 </li>
-                <li id="howCourier" onClick={() => setFaqComp("howCourier")}>
+                <li
+                  id="howCourier"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("howCourier")}
+                >
                   HOW COURIER INTEGRATION WORKS?
                 </li>
                 <li
                   id="blueExAccount"
+                  className="cursor-pointer"
                   onClick={() => setFaqComp("blueExAccount")}
                 >
                   BLUEEX ACCOUNT & ACTIVATION
                 </li>
-                <li id="stepByStep" onClick={() => setFaqComp("stepByStep")}>
+                <li
+                  id="stepByStep"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("stepByStep")}
+                >
                   STEP BY STEP - ACTIVATION PROCESS
                 </li>
-                <li id="shipCalc" onClick={() => setFaqComp("shipCalc")}>
+                <li
+                  id="shipCalc"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("shipCalc")}
+                >
                   SHIPPING CALCULATOR
                 </li>
-                <li id="shipSetup" onClick={() => setFaqComp("shipSetup")}>
+                <li
+                  id="shipSetup"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("shipSetup")}
+                >
                   SHIPPING SETUP
                 </li>
               </ul>

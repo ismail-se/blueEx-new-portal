@@ -62,22 +62,22 @@ const Xml = ({ data }) => {
           <CardContent className="flex flex-col lg:flex-row">
             <div className={styles.menu}>
               <ul className="">
-                <li id="placeOrder" onClick={() => setFaqComp("placeOrder")}>
+                <li id="placeOrder" className="cursor-pointer" onClick={() => setFaqComp("placeOrder")}>
                   Place Order
                 </li>
-                <li id="cancelOrder" onClick={() => setFaqComp("cancelOrder")}>
+                <li id="cancelOrder" className="cursor-pointer" onClick={() => setFaqComp("cancelOrder")}>
                   Cancel Order
                 </li>
-                <li id="getTariff" onClick={() => setFaqComp("getTariff")}>
+                <li id="getTariff" className="cursor-pointer" onClick={() => setFaqComp("getTariff")}>
                   Get Tariff
                 </li>
-                <li id="getCities" onClick={() => setFaqComp("getCities")}>
+                <li id="getCities" className="cursor-pointer" onClick={() => setFaqComp("getCities")}>
                   Get Cities
                 </li>
-                <li id="tracking" onClick={() => setFaqComp("tracking")}>
+                <li id="tracking" className="cursor-pointer" onClick={() => setFaqComp("tracking")}>
                   Tracking
                 </li>
-                <li id="status" onClick={() => setFaqComp("status")}>
+                <li id="status" className="cursor-pointer" onClick={() => setFaqComp("status")}>
                   Status
                 </li>
               </ul>

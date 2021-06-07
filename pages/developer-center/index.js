@@ -37,17 +37,17 @@ const DeveloperCenter = ({ data }) => {
           </CardContent>
           <CardContent className="p-4 flex flex-wrap gap-6">
             <Link href="/developer-center/open-api-xml">
-              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-lg h-[7rem] min-w-[15rem]">
+              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-md h-[7rem] min-w-[15rem]">
                 <img src="/images/openapixml.png" alt="" />
               </div>
             </Link>
             <Link href="/developer-center/open-api-json">
-              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-lg h-[7rem] min-w-[15rem]">
+              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-md h-[7rem] min-w-[15rem]">
                 <img src="/images/openapijson.png" alt="" />
               </div>
             </Link>
             <Link href="/developer-center/webx">
-              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-lg h-[7rem] min-w-[15rem]">
+              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-md h-[7rem] min-w-[15rem]">
                 <img src="/images/webx.png" alt="" />
               </div>
             </Link>
@@ -62,12 +62,12 @@ const DeveloperCenter = ({ data }) => {
               />
             </div>
             <Link href="/developer-center/magento">
-              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-lg h-[7rem] min-w-[15rem]">
+              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-md h-[7rem] min-w-[15rem]">
                 <img src="/images/magento.png" alt="" />
               </div>
             </Link>
             <Link href="/developer-center/woocommerce">
-              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-lg h-[7rem] min-w-[15rem]">
+              <div className="flex-1 cursor-pointer flex justify-center items-center shadow-md h-[7rem] min-w-[15rem]">
                 <img src="/images/woocommerce.png" alt="" />
               </div>
             </Link>

@@ -59,17 +59,30 @@ const Woocommerce = ({ data }) => {
                 </li>
                 <li
                   id="installation"
+                  className="cursor-pointer"
                   onClick={() => setFaqComp("installation")}
                 >
                   INSTALLATION & ACTIVATION
                 </li>
-                <li id="setup" onClick={() => setFaqComp("setup")}>
+                <li
+                  id="setup"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("setup")}
+                >
                   SETUP YOUR PLUGIN
                 </li>
-                <li id="setting" onClick={() => setFaqComp("setting")}>
+                <li
+                  id="setting"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("setting")}
+                >
                   SETTINGS & FINALIZATION
                 </li>
-                <li id="demo" onClick={() => setFaqComp("demo")}>
+                <li
+                  id="demo"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("demo")}
+                >
                   DEMO CREDENTIALS
                 </li>
               </ul>

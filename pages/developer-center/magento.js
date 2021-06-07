@@ -51,10 +51,18 @@ const Magento = ({ data }) => {
           <CardContent className="flex flex-col lg:flex-row">
             <div className={styles.menu}>
               <ul className="">
-                <li id="download" onClick={() => setFaqComp("download")}>
+                <li
+                  id="download"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("download")}
+                >
                   DOWNLOAD & SETUP
                 </li>
-                <li id="orderPlace" onClick={() => setFaqComp("orderPlace")}>
+                <li
+                  id="orderPlace"
+                  className="cursor-pointer"
+                  onClick={() => setFaqComp("orderPlace")}
+                >
                   ORDER PLACEMENT & TESTING
                 </li>
               </ul>

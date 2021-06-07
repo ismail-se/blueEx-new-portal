@@ -66,10 +66,10 @@ const Json = ({ data }) => {
           <CardContent className="flex flex-col lg:flex-row">
             <div className={styles.menu}>
               <ul className="">
-                <li id="placeOrder" onClick={() => setFaqComp("placeOrder")}>
+                <li id="placeOrder" className="cursor-pointer" onClick={() => setFaqComp("placeOrder")}>
                   Place Order
                 </li>
-                <li id="status" onClick={() => setFaqComp("status")}>
+                <li id="status" className="cursor-pointer" onClick={() => setFaqComp("status")}>
                   Status API
                 </li>
                 <li id="tracking" onClick={() => setFaqComp("tracking")}>
