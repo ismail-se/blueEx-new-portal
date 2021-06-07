@@ -20,10 +20,12 @@ import createShipment from "../functions/createShipment";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import AddPickupLocation from "../components/Modals/AddPickupLocation";
 
 const CreateShipment = ({ data }) => {
   const [{ acno }, dispatch] = useStateValue();
   const res = JSON.parse(data.user);
+
 
   const MySwal = withReactContent(Swal);
 
@@ -55,6 +57,9 @@ const CreateShipment = ({ data }) => {
   const [status, setStatus] = useState("Save");
   const [message, setMessage] = useState("success");
   const [cnno, setCnno] = useState("5014619681");
+
+  // Modal
+  const [show, setShow] = useState(false);
 
   // prevent submitting invalid or empty emails
   const {
@@ -362,7 +367,10 @@ const CreateShipment = ({ data }) => {
                     </select>
                   </div>
                   <div className="row flex-row-reverse mt-[-2rem]">
-                    <div className="bg-[#0047ba] text-white rounded-sm text-xs p-2 cursor-pointer">
+                    <div
+                      onClick={() => setShow(true)}
+                      className="bg-[#0047ba] text-white rounded-sm text-xs p-2 cursor-pointer"
+                    >
                       Add Pickup Location
                     </div>
                   </div>
@@ -613,6 +621,7 @@ const CreateShipment = ({ data }) => {
           </div>
         </Layout>
       </form>
+      <AddPickupLocation show={show} onHide={() => setShow(false)} />
     </div>
   );
 };

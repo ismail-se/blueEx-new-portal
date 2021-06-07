@@ -105,9 +105,6 @@ export default function CalculateFareModal({ show, onHide }) {
                         </option>
                       ))}
 
-                    <option key="BE" value="BE">
-                      BLUE EDGE
-                    </option>
                   </select>
                 </div>
               </div>

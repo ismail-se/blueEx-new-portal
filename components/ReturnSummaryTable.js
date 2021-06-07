@@ -294,7 +294,18 @@ export default function ReturnSummaryTable({ data, reload }) {
           d.COD_AMT,
           d.CUST_REF,
           `${d.ORIG_CITY} - ${d.DEST_CITY}`,
-          d.STAT_MSG,
+          // d.STAT_MSG,
+          <div
+            className={`rounded-full w-[8rem] text-white flex justify-center items-center text-center p-[0.5rem] ${
+              d.STAT_MSG.toLowerCase() === "return to shipper"
+                ? "bg-[#ed1f60]"
+                : ""
+            }  ${
+              d.STAT_MSG.toLowerCase() === "delivered" ? "bg-[#c6d53f]" : ""
+            }              `}
+          >
+            {d.STAT_MSG.toUpperCase()}
+          </div>,
           <EmailIcon />
         );
         newRows.push(ro);

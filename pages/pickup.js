@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import PickupListTable from "../components/PickupListTable";
 import { actionTypes } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
-import fetchPickupList from "../functions/fetchPickupList";
 import { parseCookies } from "../helpers/";
 
 const Pickup = ({ data }) => {
