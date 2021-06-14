@@ -84,8 +84,10 @@ const Deliveries = ({ data }) => {
   };
 
   const reload = async () => {
+    setIsLoading(true);
     const a = await getDeliveries();
     setList(a);
+    setIsLoading(false);
   };
 
   useEffect(async () => {
@@ -94,6 +96,8 @@ const Deliveries = ({ data }) => {
     setList(a);
     setIsLoading(false);
   }, [startDate, endDate]);
+
+  useEffect(() => console.log("List", list), [list]);
 
   return (
     <div>

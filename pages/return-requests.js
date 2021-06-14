@@ -73,7 +73,7 @@ const ReturnRequests = ({ data }) => {
               </span>
             }
           >
-            <ReAttemptRequest />
+            <ReAttemptRequest acno={res.acno} />
           </Tab>
           <Tab
             eventKey="returnSummary"

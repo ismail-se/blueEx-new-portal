@@ -12,6 +12,7 @@ import SearchBar from "material-ui-search-bar";
 import FormData from "form-data";
 import { useStateValue } from "../context/StateProvider";
 import UpdatePickupLocation from "./UpdatePickupLocation";
+import Alert from "@material-ui/lab/Alert";
 
 const columns = [
   { id: "name", label: "Name", minWidth: 100 },
@@ -151,7 +152,7 @@ export default function PickupLocationTable({ acno }) {
           <div>
             {data.detail[i].NAME}{" "}
             {data.detail[i].DEFAULT === "Y" && (
-              <div className="rounded-full w-[8rem] text-white flex justify-center items-center text-center p-[0.5rem] bg-[#00adef]">
+              <div className="rounded-full w-[8rem] text-white flex justify-center items-center text-center p-[0.5rem] bg-[#00adef] text-[0.7rem] cursor-pointer min-w-[8rem] max-w-full">
                 DEFAULT
               </div>
             )}
@@ -198,7 +199,7 @@ export default function PickupLocationTable({ acno }) {
 
   return (
     <Paper elevation={0}>
-      {originalRows !== [] && (
+      {originalRows.length !== 0 ? (
         <>
           <div className="flex justify-between items-center mb-[1rem]">
             <SearchBar
@@ -259,14 +260,17 @@ export default function PickupLocationTable({ acno }) {
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
           />
+
+          <UpdatePickupLocation
+            show={show}
+            onHide={() => setShow(false)}
+            newData={modalData}
+            reload={reload}
+          />
         </>
+      ) : (
+        <Alert severity="info">There is no data in Pickup Location List</Alert>
       )}
-      <UpdatePickupLocation
-        show={show}
-        onHide={() => setShow(false)}
-        newData={modalData}
-        reload={reload}
-      />
     </Paper>
   );
 }

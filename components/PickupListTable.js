@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import SearchBar from "material-ui-search-bar";
 import FormData from "form-data";
 import { useStateValue } from "../context/StateProvider";
+import Alert from "@material-ui/lab/Alert";
 
 const columns = [
   { id: "sheetNo", label: "Sheet No #", minWidth: 170 },
@@ -142,7 +143,7 @@ export default function PickupListTable() {
 
   return (
     <Paper elevation={0} className={classes.root}>
-      {originalRows !== [] && (
+      {originalRows.length !== 0 ? (
         <>
           <div className="flex justify-between items-center mb-[1rem]">
             <SearchBar
@@ -204,6 +205,8 @@ export default function PickupListTable() {
             onChangeRowsPerPage={handleChangeRowsPerPage}
           />
         </>
+      ) : (
+        <Alert severity="info">There is no data in Pickup List</Alert>
       )}
     </Paper>
   );

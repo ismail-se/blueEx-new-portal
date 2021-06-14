@@ -235,91 +235,97 @@ export default function StatementTable() {
   return (
     <Paper elevation={0} className={classes.root}>
       {copied && <Alert severity="success">Table Copied to clipboard</Alert>}
-      <div className="flex justify-between items-center mb-[1rem]">
-        <SearchBar
-          value={searched}
-          onChange={(searchVal) => requestSearch(searchVal)}
-          onCancelSearch={() => cancelSearch()}
-        />
-        <div className="space-x-2 hidden sm:block">
-          <CopyToClipboard
-            text={copyText}
-            onCopy={() => setCopied({ copied: true })}
-          >
-            <button className="csvButton">Copy</button>
-          </CopyToClipboard>
+      {originalRows.length !== 0 ? (
+        <>
+          <div className="flex justify-between items-center mb-[1rem]">
+            <SearchBar
+              value={searched}
+              onChange={(searchVal) => requestSearch(searchVal)}
+              onCancelSearch={() => cancelSearch()}
+            />
+            <div className="space-x-2 hidden sm:block">
+              <CopyToClipboard
+                text={copyText}
+                onCopy={() => setCopied({ copied: true })}
+              >
+                <button className="csvButton">Copy</button>
+              </CopyToClipboard>
 
-          <ExportXls
-            csvData={csvData}
-            fileName={"statements"}
-            headings={headings}
-          />
-          <CSVLink
-            data={csvData}
-            headers={headers}
-            filename={"statemnetlist.csv"}
-          >
-            <button className="csvButton">CSV</button>
-          </CSVLink>
-        </div>
-      </div>
-      <TableContainer className={classes.container}>
-        {isLoading ? (
-          <div className="flex justify-center items-center">
-            <CircularProgress />
+              <ExportXls
+                csvData={csvData}
+                fileName={"statements"}
+                headings={headings}
+              />
+              <CSVLink
+                data={csvData}
+                headers={headers}
+                filename={"statemnetlist.csv"}
+              >
+                <button className="csvButton">CSV</button>
+              </CSVLink>
+            </div>
           </div>
-        ) : (
-          <Table id="statementTable" stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                  >
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        )}
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
+          <TableContainer className={classes.container}>
+            {isLoading ? (
+              <div className="flex justify-center items-center">
+                <CircularProgress />
+              </div>
+            ) : (
+              <Table id="statementTable" stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth }}
+                      >
+                        {column.label}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row) => {
+                      return (
+                        <TableRow
+                          hover
+                          role="checkbox"
+                          tabIndex={-1}
+                          key={row.code}
+                        >
+                          {columns.map((column) => {
+                            const value = row[column.id];
+                            return (
+                              <TableCell key={column.id} align={column.align}>
+                                {column.format && typeof value === "number"
+                                  ? column.format(value)
+                                  : value}
+                              </TableCell>
+                            );
+                          })}
+                        </TableRow>
+                      );
+                    })}
+                </TableBody>
+              </Table>
+            )}
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </>
+      ) : (
+        <Alert severity="info">There is no data in Statement List</Alert>
+      )}
     </Paper>
   );
 }

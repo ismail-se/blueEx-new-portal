@@ -114,15 +114,15 @@ const ShipmentTrend = () => {
           <h2 className="h2">Shipment Trend</h2>
           <div className="flex items-center space-x-4">
             <div
-              className="flex items-center space-x-4"
+              className="flex items-center space-x-4 setBtn"
               ref={ref}
               onClick={() => setDateView(!dateView)}
             >
-              <span className="text-[#0047ba] hidden sm:block">
+              <span className="text-[#0047ba] hidden sm:block setBtn">
                 {selectedDate && selectedDate}
               </span>
-              <button className="dateBtn">
-                <KeyboardArrowDownIcon />
+              <button className="dateBtn setBtn">
+                <KeyboardArrowDownIcon className="setBtn" />
               </button>
             </div>
             <Link href="/deliveries">
@@ -195,18 +195,18 @@ const ShipmentTrend = () => {
         </CardContent>
       </Card>
       {dateView && (
-        <DateRangePicker
-          className="absolute top-16 right-0 z-10 shadow-md"
-          // ref={ref}
-          onChange={(item) => {
-            setState([item.selection]);
-          }}
-          showSelectionPreview={true}
-          moveRangeOnFirstSelection={false}
-          months={2}
-          ranges={state}
-          direction="horizontal"
-        />
+        <div className="absolute top-16 right-0 z-10 shadow-md" ref={ref}>
+          <DateRangePicker
+            onChange={(item) => {
+              setState([item.selection]);
+            }}
+            showSelectionPreview={true}
+            moveRangeOnFirstSelection={false}
+            months={2}
+            ranges={state}
+            direction="horizontal"
+          />
+        </div>
       )}
     </div>
   );

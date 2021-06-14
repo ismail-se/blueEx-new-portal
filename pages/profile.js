@@ -84,15 +84,17 @@ const Profile = ({ data, userdata }) => {
   const [password, setPassword] = useState(pass);
 
   useEffect(() => {
-    let d = userdata.detail[0];
-    setAccountTitle(d.AccountTitle);
-    setAddress(d.Address);
-    setCnic(d.CNIC);
-    setCell(d.Cell);
-    setEmail(d.Email);
-    setNtn(d.NTN);
-    setName(d.Name);
-  }, []);
+    if (userdata !== "") {
+      let d = userdata.detail[0];
+      setAccountTitle(d.AccountTitle);
+      setAddress(d.Address);
+      setCnic(d.CNIC);
+      setCell(d.Cell);
+      setEmail(d.Email);
+      setNtn(d.NTN);
+      setName(d.Name);
+    }
+  }, [userdata]);
 
   return (
     <Layout>

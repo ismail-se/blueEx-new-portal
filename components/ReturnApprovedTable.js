@@ -44,27 +44,27 @@ const MySwal = withReactContent(Swal);
 
 const headers = [
   { label: "CN#", key: "cn" },
-  { label: "Return Date", key: "retDate" },
+  { label: "Customer Ref", key: "custRef" },
   { label: "Customer", key: "customer" },
   { label: "Address", key: "address" },
   { label: "Contact", key: "contact" },
   { label: "COD", key: "cod" },
-  { label: "Customer Ref", key: "custRef" },
   { label: "From To", key: "fromTo" },
   { label: "Status", key: "status" },
+  { label: "Comment", key: "comment" },
 ];
 
 const headings = [
   [
     "CN#",
-    "Return Date",
+    "Customer Ref",
     "Customer",
     "Address",
     "Contact",
     "COD",
-    "Customer Ref",
     "From To",
     "Status",
+    "Comment",
   ],
 ];
 
@@ -98,52 +98,45 @@ function stableSort(array, comparator) {
 
 function createData(
   cn,
-  returnDate,
+  cstRef,
   customer,
   address,
   contact,
   cod,
-  cstRef,
   fromTo,
   status,
-  act
+  comment
 ) {
   return {
     cn,
-    returnDate,
+    cstRef,
     customer,
     address,
     contact,
     cod,
-    cstRef,
     fromTo,
     status,
-    act,
+    comment,
   };
 }
 
 const headCells = [
   { id: "cn", numeric: false, disablePadding: false, label: "CN#" },
   {
-    id: "returnDate",
+    id: "cstRef",
     numeric: true,
     disablePadding: false,
-    label: "Return Date",
+    label: "Customer Ref",
   },
 
   { id: "customer", numeric: true, disablePadding: false, label: "Customer" },
   { id: "address", numeric: true, disablePadding: false, label: "Address" },
   { id: "contact", numeric: true, disablePadding: false, label: "Contact" },
   { id: "cod", numeric: true, disablePadding: false, label: "COD" },
-  {
-    id: "cstRef",
-    numeric: true,
-    disablePadding: false,
-    label: "Customer Ref",
-  },
+
   { id: "fromTo", numeric: true, disablePadding: false, label: "From To" },
   { id: "status", numeric: true, disablePadding: false, label: "Status" },
-  { id: "act", numeric: true, disablePadding: false, label: "Actions" },
+  { id: "comment", numeric: true, disablePadding: false, label: "Comment" },
 ];
 
 function EnhancedTableHead(props) {
@@ -266,8 +259,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReturnSummaryTable({ data, reload }) {
-  const [{ acno, b_usrId }, dispatch] = useStateValue();
+export default function ReturnApprovedTable({ data }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -280,48 +272,42 @@ export default function ReturnSummaryTable({ data, reload }) {
   useEffect(() => {
     if (data !== [] && data !== null) {
       setOriginalRows([]);
-      console.log("Data ", data);
       csvData = [];
       let newRows = [];
-      let cp = `CN#\t\tReturn Date\t\tCustomer\t\tAddress\t\tContact\t\tCOD\t\tCST REF\t\tFrom To\t\tStatus\n`;
+      let cp = `CN#\t\tCustomer Ref\t\tCustomer\t\tAddress\t\tContact\t\tCOD\t\tFrom To\t\tStatus\t\tComment\n`;
       for (let d of data) {
         let ro = createData(
           d.CNNO,
-          d.RET_DATE,
+          d.CUST_REF,
           d.CON_NAME,
           d.CON_ADD,
           d.CON_CEL,
           d.COD_AMT,
-          d.CUST_REF,
           `${d.ORIG_CITY} - ${d.DEST_CITY}`,
-          // d.STAT_MSG,
-          <div
-            className={`rounded-full w-[8rem] text-white flex justify-center items-center text-center p-[0.5rem] text-[0.7rem] cursor-pointer min-w-[8rem] max-w-full ${
-              d.STAT_MSG.toLowerCase() === "return to shipper"
-                ? "bg-[#ed1f60]"
-                : ""
-            }  ${
-              d.STAT_MSG.toLowerCase() === "delivered" ? "bg-[#c6d53f]" : ""
-            }              `}
-          >
-            {d.STAT_MSG.toUpperCase()}
+          <div className="flex flex-col gap-2">
+            <div className="rounded-full cursor-pointer min-w-[8rem] max-w-full text-white flex justify-center items-center text-center p-[0.5rem] bg-[#ffc212] text-[0.7rem]">
+              IN-TRANSIT
+            </div>
+            <div className="rounded-full cursor-pointer min-w-[8rem] max-w-full text-white flex justify-center items-center text-center p-[0.5rem] bg-[#ffda70] text-[0.7rem]">
+              REQUEST APPROVED
+            </div>
           </div>,
-          <EmailIcon />
+          d.COMENT === "" ? "None" : d.COMENT
         );
         newRows.push(ro);
 
-        cp += `${d.CNNO}\t${d.RET_DATE}\t${d.CON_NAME}\t${d.CON_ADD}\t${d.CON_CEL}\t${d.COD_AMT}\t${d.CUST_REF}\t${d.PROD_DETAIL}\t${d.ORIG_CITY} - ${d.DEST_CITY}\t${d.STAT_MSG}\t\n`;
+        cp += `${d.CNNO}\t${d.CUST_REF}\t${d.CON_NAME}\t${d.CON_ADD}\t${d.CON_CEL}\t${d.COD_AMT}\t\t${d.ORIG_CITY} - ${d.DEST_CITY}\t\t${d.STAT_MSG}\t\t${d.COMENT}\n`;
 
         csvData.push({
           cn: d.CNNO,
-          retDate: d.RET_DATE,
+          custRef: d.CUST_REF,
           customer: d.CON_NAME,
           address: d.CON_ADD,
           contact: d.CON_CEL,
           cod: d.COD_AMT,
-          custRef: d.CUST_REF,
           fromTo: `${d.ORIG_CITY} - ${d.DEST_CITY}`,
           status: d.STAT_MSG,
+          status: d.COMENT,
         });
       }
       setOriginalRows(newRows);
@@ -501,15 +487,14 @@ export default function ReturnSummaryTable({ data, reload }) {
                           >
                             {row.cn}
                           </TableCell>
-                          <TableCell align="right">{row.returnDate}</TableCell>
+                          <TableCell align="right">{row.cstRef}</TableCell>
                           <TableCell align="right">{row.customer}</TableCell>
                           <TableCell align="right">{row.address}</TableCell>
                           <TableCell align="right">{row.contact}</TableCell>
                           <TableCell align="right">{row.cod}</TableCell>
-                          <TableCell align="right">{row.cstRef}</TableCell>
                           <TableCell align="right">{row.fromTo}</TableCell>
                           <TableCell align="right">{row.status}</TableCell>
-                          <TableCell align="right">{row.act}</TableCell>
+                          <TableCell align="right">{row.comment}</TableCell>
                         </TableRow>
                       );
                     })}

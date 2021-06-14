@@ -56,19 +56,25 @@ const SettlementHistory = () => {
             <h3 className="h2">Last Statement for the period</h3>
             {data && (
               <>
-                <p className="font-light">
-                  of {dateChanger(data[0]?.SDATE)} to{" "}
-                  {dateChanger(data[0]?.EDATE)}
-                </p>
+                {data?.length !== 0 && (
+                  <p className="font-light">
+                    of {dateChanger(data[0]?.SDATE)} to{" "}
+                    {dateChanger(data[0]?.EDATE)}
+                  </p>
+                )}
                 <div className="text-3xl font-semibold text-[#0047ba] mt-2">
-                  <CurrencyFormat
-                    renderText={(value) => <>{value}</>}
-                    value={data[0]?.CODAMOUNT}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    decimalScale={2}
-                    prefix={"Rs. "}
-                  />
+                  {data?.length !== 0 ? (
+                    <CurrencyFormat
+                      renderText={(value) => <>{value}</>}
+                      value={data[0]?.CODAMOUNT}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      decimalScale={2}
+                      prefix={"Rs. "}
+                    />
+                  ) : (
+                    "Rs. 0"
+                  )}
                 </div>
               </>
             )}
@@ -77,34 +83,41 @@ const SettlementHistory = () => {
       </CardContent>
       <div className="overflow-auto h-[47.5rem]">
         <CardContent>
-          <Timeline align="right">
-            {data &&
-              data.map((d) => (
-                <TimelineItem key={d.FPS_CODE}>
-                  <TimelineOppositeContent>
-                    <div className="text-[#0047ba]">
-                      <CurrencyFormat
-                        renderText={(value) => <>{value}</>}
-                        value={d.CODAMOUNT}
-                        displayType={"text"}
-                        thousandSeparator={true}
-                        decimalScale={2}
-                        prefix={"Rs. "}
-                      />
-                    </div>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot variant="outlined" color="primary" />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <div className="sm:w-[10rem]">
-                      {dateChanger(d.SDATE)} to {dateChanger(d.EDATE)}
-                    </div>
-                  </TimelineContent>
-                </TimelineItem>
-              ))}
-          </Timeline>
+          {data?.length !== 0 ? (
+            <Timeline align="right">
+              {data &&
+                data.map((d) => (
+                  <TimelineItem key={d.FPS_CODE}>
+                    <TimelineOppositeContent>
+                      <div className="text-[#0047ba]">
+                        <CurrencyFormat
+                          renderText={(value) => <>{value}</>}
+                          value={d.CODAMOUNT}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          decimalScale={2}
+                          prefix={"Rs. "}
+                        />
+                      </div>
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                      <TimelineDot variant="outlined" color="primary" />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                      <div className="sm:w-[8rem] text-sm text-left">
+                        {dateChanger(d.SDATE)} to {dateChanger(d.EDATE)}
+                      </div>
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+            </Timeline>
+          ) : (
+            <p className="w-[19rem]">
+              There is no Settlement History against this{" "}
+              <strong>{acno}</strong>
+            </p>
+          )}
         </CardContent>
       </div>
     </Card>

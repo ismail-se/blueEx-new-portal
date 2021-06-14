@@ -1,19 +1,26 @@
 import { useEffect } from "react";
 
-const useOutsideClick = (ref, callback) => {
-  const handleClick = e => {
-    if (ref.current && !ref.current.contains(e.target)) {
-      callback();
-    }
-  };
-
+function useOutsideClick(ref, setDateView) {
   useEffect(() => {
-    document.addEventListener("click", handleClick);
-
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        !event.target.classList.contains("setBtn")
+      ) {
+        setDateView(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("click", handleClick);
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  });
-};
+  }, [ref]);
+}
 
 export default useOutsideClick;

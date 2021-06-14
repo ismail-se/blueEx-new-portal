@@ -560,7 +560,7 @@ export default function DeliveriesTable({ data, reload }) {
           `${data[i].ORIG_CITY} - ${data[i].DEST_CITY}`,
           data[i].COMENT === "" ? "-" : data[i].COMENT,
           <div
-            className={`rounded-full w-[8rem] text-white flex justify-center items-center text-center p-[0.5rem] ${
+            className={`rounded-full w-[8rem] text-white flex justify-center items-center text-center p-[0.5rem] text-[0.7rem] cursor-pointer min-w-[8rem] max-w-full ${
               data[i].STAT_MSG.toLowerCase() === "booked" ? "bg-[#00adef]" : ""
             }  ${
               data[i].STAT_MSG.toLowerCase() === "delivered"
