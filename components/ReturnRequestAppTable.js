@@ -280,7 +280,6 @@ export default function ReturnSummaryTable({ data, reload }) {
   useEffect(() => {
     if (data !== [] && data !== null) {
       setOriginalRows([]);
-      console.log("Data ", data);
       csvData = [];
       let newRows = [];
       let cp = `CN#\t\tReturn Date\t\tCustomer\t\tAddress\t\tContact\t\tCOD\t\tCST REF\t\tFrom To\t\tStatus\n`;

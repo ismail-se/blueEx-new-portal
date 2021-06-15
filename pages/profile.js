@@ -11,14 +11,32 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import updateProfile from "../functions/updateProfile";
 import Alert from "react-bootstrap/Alert";
+import { useRecoilState } from "recoil";
+import { userInfo } from "../recoil/atoms";
 
 const Profile = ({ data, userdata }) => {
-  const [{ acno }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
+  const [todoList, setTodoList] = useRecoilState(userInfo);
   const res = JSON.parse(data.user);
 
   console.log(userdata);
 
-  useEffect(() => {
+  const newfetchProfile = async (ac) => {
+    console.log("acno", ac);
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    let data = await fetch(
+      `http://portal.blue-ex.com/api1/customerportal/viewprofile.py?acno=${ac}`,
+      requestOptions
+    ).then((response) => response.json());
+
+    return data;
+  };
+
+  useEffect(async () => {
     dispatch({
       type: actionTypes.SET_USER,
       acno: res.acno,
@@ -26,6 +44,16 @@ const Profile = ({ data, userdata }) => {
       name: res.name,
       acc_type: res.type,
     });
+    const theData = await newfetchProfile(res.acno);
+    console.log(theData);
+    let d = theData.detail[0];
+    setAccountTitle(d.AccountTitle);
+    setAddress(d.Address);
+    setCnic(d.CNIC);
+    setCell(d.Cell);
+    setEmail(d.Email);
+    setNtn(d.NTN);
+    setName(d.Name);
   }, []);
 
   const [accountTitle, setAccountTitle] = useState("");

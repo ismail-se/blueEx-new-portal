@@ -291,3 +291,12 @@ pre {
 .token.punctuation {
   color: #476cc7e0;
 }
+
+.MuiTableRow-root:nth-child(even) {
+  @apply bg-gray-100;
+}
+
+.MuiTableCell-head,
+.MuiTableHead-root {
+  @apply bg-gray-100;
+}

@@ -33,14 +33,12 @@ const ReAttemptRequest = ({ acno }) => {
   useEffect(async () => {
     const a = await getReturnRequest();
     setList(a.detail);
-    console.log(a);
     setIsLoading(false);
   }, []);
 
   const reload = async () => {
     setIsLoading(true);
     const a = await getReturnRequest();
-    console.log(a.detail);
     setList(a.detail);
     setIsLoading(false);
   };

@@ -124,15 +124,14 @@ const Deliveries = ({ data }) => {
             <CardContent className="border-b p-4 flex items-center justify-between ">
               <h2 className="h2">Delivery List</h2>
               <div
-                className="flex items-center space-x-4"
-                ref={ref}
+                className="flex items-center space-x-4 setBtn"
                 onClick={() => setDateView(!dateView)}
               >
-                <span className="text-[#0047ba] hidden sm:block">
+                <span className="text-[#0047ba] hidden sm:block setBtn">
                   {selectedDate && selectedDate}
                 </span>
-                <button className="dateBtn" ref={ref}>
-                  <KeyboardArrowDownIcon />
+                <button className="dateBtn setBtn">
+                  <KeyboardArrowDownIcon className="setBtn" />
                 </button>
               </div>
             </CardContent>
@@ -147,18 +146,18 @@ const Deliveries = ({ data }) => {
             </CardContent>
           </Card>
           {dateView && (
-            <DateRangePicker
-              // ref={ref}
-              className="absolute top-16 right-0 z-10 shadow-md"
-              onChange={(item) => {
-                setState([item.selection]);
-              }}
-              showSelectionPreview={true}
-              moveRangeOnFirstSelection={false}
-              months={2}
-              ranges={state}
-              direction="horizontal"
-            />
+            <div className="absolute top-16 right-0 z-10 shadow-md" ref={ref}>
+              <DateRangePicker
+                onChange={(item) => {
+                  setState([item.selection]);
+                }}
+                showSelectionPreview={true}
+                moveRangeOnFirstSelection={false}
+                months={2}
+                ranges={state}
+                direction="horizontal"
+              />
+            </div>
           )}
         </div>
       </Layout>

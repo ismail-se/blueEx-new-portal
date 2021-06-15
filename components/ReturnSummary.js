@@ -63,14 +63,12 @@ const ReturnSummary = ({ acno }) => {
 
   const reload = async () => {
     const a = await getReturnRequest();
-    console.log(a.detail);
     setList(a.detail);
   };
 
   useEffect(async () => {
     setIsLoading(true);
     const a = await getReturnRequest();
-    console.log(a);
     setList(a.detail);
     setIsLoading(false);
   }, [startDate, endDate]);
@@ -82,15 +80,14 @@ const ReturnSummary = ({ acno }) => {
           <CardContent className="border-b p-4 flex items-center justify-between ">
             <h2 className="h2">Return Summary List</h2>
             <div
-              className="flex items-center space-x-4"
-              ref={ref}
+              className="flex items-center space-x-4 setBtn"
               onClick={() => setDateView(!dateView)}
             >
-              <span className="text-[#0047ba] hidden sm:block">
+              <span className="text-[#0047ba] hidden sm:block setBtn">
                 {selectedDate && selectedDate}
               </span>
-              <button className="dateBtn" ref={ref}>
-                <KeyboardArrowDownIcon />
+              <button className="dateBtn setBtn">
+                <KeyboardArrowDownIcon className="setBtn" />
               </button>
             </div>
           </CardContent>
@@ -105,18 +102,18 @@ const ReturnSummary = ({ acno }) => {
           </CardContent>
         </Card>
         {dateView && (
-          <DateRangePicker
-            // ref={ref}
-            className="absolute top-16 right-0 z-10 shadow-md"
-            onChange={(item) => {
-              setState([item.selection]);
-            }}
-            showSelectionPreview={true}
-            moveRangeOnFirstSelection={false}
-            months={2}
-            ranges={state}
-            direction="horizontal"
-          />
+          <div className="absolute top-16 right-0 z-10 shadow-md" ref={ref}>
+            <DateRangePicker
+              onChange={(item) => {
+                setState([item.selection]);
+              }}
+              showSelectionPreview={true}
+              moveRangeOnFirstSelection={false}
+              months={2}
+              ranges={state}
+              direction="horizontal"
+            />
+          </div>
         )}
       </div>
     </div>

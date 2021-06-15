@@ -57,7 +57,7 @@ const useStyles = makeStyles({
 });
 
 export default function PickupLocationTable({ acno }) {
-  const [originalRows, setOriginalRows] = React.useState([]);
+  const [originalRows, setOriginalRows] = React.useState(null);
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -199,78 +199,82 @@ export default function PickupLocationTable({ acno }) {
 
   return (
     <Paper elevation={0}>
-      {originalRows.length !== 0 ? (
-        <>
-          <div className="flex justify-between items-center mb-[1rem]">
-            <SearchBar
-              value={searched}
-              onChange={(searchVal) => requestSearch(searchVal)}
-              onCancelSearch={() => cancelSearch()}
-            />
-            <div className="space-x-2 hidden sm:block"></div>
-          </div>
-          <TableContainer>
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead>
-                <TableRow>
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => {
-                    return (
-                      <TableRow
-                        hover
-                        role="checkbox"
-                        tabIndex={-1}
-                        key={row.contact}
+      {originalRows !== null &&
+        rows !== null &&
+        (originalRows.length !== 0 ? (
+          <>
+            <div className="flex justify-between items-center mb-[1rem]">
+              <SearchBar
+                value={searched}
+                onChange={(searchVal) => requestSearch(searchVal)}
+                onCancelSearch={() => cancelSearch()}
+              />
+              <div className="space-x-2 hidden sm:block"></div>
+            </div>
+            <TableContainer>
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth }}
                       >
-                        {columns.map((column) => {
-                          const value = row[column.id];
-                          return (
-                            <TableCell key={column.id} align={column.align}>
-                              {column.format && typeof value === "number"
-                                ? column.format(value)
-                                : value}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    );
-                  })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[10, 25, 100]}
-            component="div"
-            count={rows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onChangePage={handleChangePage}
-            onChangeRowsPerPage={handleChangeRowsPerPage}
-          />
+                        {column.label}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row) => {
+                      return (
+                        <TableRow
+                          hover
+                          role="checkbox"
+                          tabIndex={-1}
+                          key={row.contact}
+                        >
+                          {columns.map((column) => {
+                            const value = row[column.id];
+                            return (
+                              <TableCell key={column.id} align={column.align}>
+                                {column.format && typeof value === "number"
+                                  ? column.format(value)
+                                  : value}
+                              </TableCell>
+                            );
+                          })}
+                        </TableRow>
+                      );
+                    })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <TablePagination
+              rowsPerPageOptions={[10, 25, 100]}
+              component="div"
+              count={rows.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onChangePage={handleChangePage}
+              onChangeRowsPerPage={handleChangeRowsPerPage}
+            />
 
-          <UpdatePickupLocation
-            show={show}
-            onHide={() => setShow(false)}
-            newData={modalData}
-            reload={reload}
-          />
-        </>
-      ) : (
-        <Alert severity="info">There is no data in Pickup Location List</Alert>
-      )}
+            <UpdatePickupLocation
+              show={show}
+              onHide={() => setShow(false)}
+              newData={modalData}
+              reload={reload}
+            />
+          </>
+        ) : (
+          <Alert severity="info">
+            There is no data in Pickup Location List
+          </Alert>
+        ))}
     </Paper>
   );
 }

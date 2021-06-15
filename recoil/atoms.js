@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-const userInfo = atom({
+export const userInfo = atom({
   key: "userInfo",
   default: {
     acno: "",
@@ -10,7 +10,5 @@ const userInfo = atom({
     address: "",
     cnic: "",
     cell: "",
-    
   },
 });
-

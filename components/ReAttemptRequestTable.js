@@ -277,13 +277,9 @@ export default function ReAttemptRequestTable({ data }) {
   const [show, setShow] = useState(false);
   const [modalCn, setModalCn] = useState("");
 
-  useEffect(() => console.log("data is ", data), [data]);
-
   useEffect(() => {
-    console.log("data is ", data);
     if (data !== [] && data !== null) {
       setOriginalRows([]);
-      console.log("Data ", data);
       csvData = [];
       let newRows = [];
       let cp = `CN#\t\tCustomer Ref\t\tCustomer\t\tAddress\t\tContact\t\tCOD\t\tFrom To\t\tStatus\t\tComment\n`;

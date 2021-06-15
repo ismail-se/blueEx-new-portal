@@ -26,6 +26,7 @@ import { useStateValue } from "../context/StateProvider";
 import CancelShipment from "../functions/cancelShipment";
 import CreatePickup from "../functions/createPickup";
 import EmailIcon from "@material-ui/icons/Email";
+import Message from "./Modals/Message";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
@@ -277,10 +278,13 @@ export default function ReturnSummaryTable({ data, reload }) {
 
   const [originalRows, setOriginalRows] = useState([]);
 
+  // Modal
+  const [show, setShow] = useState(false);
+  const [modalCn, setModalCn] = useState("");
+
   useEffect(() => {
     if (data !== [] && data !== null) {
       setOriginalRows([]);
-      console.log("Data ", data);
       csvData = [];
       let newRows = [];
       let cp = `CN#\t\tReturn Date\t\tCustomer\t\tAddress\t\tContact\t\tCOD\t\tCST REF\t\tFrom To\t\tStatus\n`;
@@ -306,7 +310,15 @@ export default function ReturnSummaryTable({ data, reload }) {
           >
             {d.STAT_MSG.toUpperCase()}
           </div>,
-          <EmailIcon />
+          <div
+            className="hover:bg-blue-800 hover:text-white w-[3rem] h-[3rem] p-2 flex justify-center items-center rounded-full"
+            onClick={() => {
+              setModalCn(d.CNNO);
+              setShow(true);
+            }}
+          >
+            <EmailIcon />
+          </div>
         );
         newRows.push(ro);
 
@@ -534,6 +546,7 @@ export default function ReturnSummaryTable({ data, reload }) {
         ) : (
           <Alert severity="info">There is no data in Return Summary</Alert>
         )}
+        <Message show={show} onHide={() => setShow(false)} cn={modalCn} />
       </Paper>
     </div>
   );
